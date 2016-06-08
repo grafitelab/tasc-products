@@ -48,7 +48,7 @@
 
 			<header class="header <?php if(is_single() && ('post' == get_post_type())){ printf("article-single"); } if(is_single() && ('product' == get_post_type())){ printf("product-single"); } ?>" role="banner">
 
-				<div id="inner-header" class="wrap clearfix">
+				<div id="inner-header" class="clearfix">
 
 					<a id="logo" href="<?php echo home_url(); ?>" rel="nofollow">
 		            		<div id="peaks">
@@ -67,5 +67,10 @@
 					<p class="header-social" role="navigation"><a href="#">FB</a> | <a href="#">TW</a> | <a href="#">IG</a> | <a href="#">MAIL</a></p>
 
 				</div> <!-- end #inner-header -->
+				
+				
+				<div id="outer-header">
+					<p>Selezione Italiana dei Migliori Prodotti al Mondo.</p>
+				</div>
 
 			</header> <!-- end header -->

@@ -42,6 +42,10 @@ body {
 	background-color: @tasc-background;
 }
 
+body,html {
+	overflow-x:hidden;
+}
+
 /********************
 02. WORDPRESS BODY CLASSES
     style a page via class
@@ -175,6 +179,10 @@ h5, .h5 {
 	background-color: @tasc-grey;
 	height: 300px;
 	width: 100%;
+	overflow-x:auto;
+	overflow-y:hidden;
+	position:relative;
+	-webkit-overflow-scrolling: touch;
 	
 	&.article-single {
 		height: 120px;
@@ -195,9 +203,31 @@ h5, .h5 {
 		}
 	}
 	
+	
 	#inner-header {
-		position: relative;
-		height: 100%;
+		background-color:  @tasc-grey;
+		float:left;
+		display:inline-block;
+		width:100%;
+		height:100%;
+		padding:0 20px;
+		.boxSizing();
+	}
+	#outer-header {
+		background-color:  @black;
+		display:inline-block;
+		position:absolute;
+		float:left;
+		color: @white;
+		width:100%;
+		height:100%;
+		font-size:20px;
+		padding:0 20px;
+		
+		p{
+			max-width:50%;
+		}
+		.boxSizing();
 	}
 
 	#peaks {
@@ -208,7 +238,7 @@ h5, .h5 {
 		
 	}
 	
-	.peak {background-size:100% auto; background-repeat:no-repeat; float:left; height:200px; background-position:bottom left; margin-left:-20px;  -webkit-backface-visibility: hidden !important; .animation(fadein,.5s);}
+	.peak {background-size:100% auto; background-repeat:no-repeat; float:left; height:180px; background-position:bottom left; margin-left:-20px;  -webkit-backface-visibility: hidden !important; .animation(fadein,.5s);}
 
 	#peak1 {background-image:url('../images/1.png'); background-size:42px auto; width:42px; /*width:73px*/ .animation(scaleup,.8s) ; }
 	#peak2 {background-image:url('../images/2.png'); background-size:42px auto; width:42px; .animation(scaleup,1.1s); }
@@ -236,7 +266,7 @@ h5, .h5 {
 	.header-social {
 		position: absolute;
 	    bottom: 0;
-	    right: 0;
+	    right: 20px;
 	    color: white;
 	    font-size: 14px;
 	    a{
@@ -946,7 +976,38 @@ and more scalable.
 
 .footer {
 	clear: both;
+	background-color:  @tasc-grey;
+	font-weight:500;
+	font-size:11px;
+	margin-top:1em;
+	
+	
+	
 	#inner-footer {
+		position:relative;
+		overflow-x:auto;
+		-webkit-overflow-scrolling: touch;
+		.footer-left {
+			background-color:  @tasc-grey;
+			padding:2em;
+			float:left;
+			display:inline-block;
+			color: #0f171d;
+			width:100%;
+			height:100%;
+		}
+		.footer-right {
+			background-color:  @white;
+			display:inline-block;
+			padding:2em;
+			position:absolute;
+			float:left;
+			color: @black;
+			width:100%;
+			height:100%;
+		}
+		
+		
 	}
 	nav {
 		ul.nav {

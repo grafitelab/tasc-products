@@ -1,7 +1,15 @@
 			<footer class="footer" role="contentinfo">
 			
-				<div id="inner-footer" class="wrap clearfix">
-				
+				<div id="inner-footer" class="clearfix">
+					<div class="footer-left">
+						Co-Founded and Designed by Alberto Ziveri. <br />
+						Co-Founded by Mario Calì & Jacopo Agostini. <br />
+						Developed by Matteo Pelosi.
+					</div>
+					<div class="footer-right">
+						Alberto Ziveri, Mario Calì, Jacopo Agostini, Matteo Pelosi...
+					</div>
+					
 				</div> <!-- end #inner-footer -->
 				
 			</footer> <!-- end footer -->

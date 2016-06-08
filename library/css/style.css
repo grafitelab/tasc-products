@@ -620,6 +620,9 @@ Be careful with these since they can
 really slow down your CSS. Don't overdo it.
 *********************/
 /* .css-gradient(#dfdfdf,#f8f8f8); */
+/* .boxSizing(border-box); */
+/* NOTE: value of "padding-box" is only supported in Gecko. So 
+probably best not to use it. I mean, were you going to anyway? */
 /*********************
 BOX SHADOW
 *********************/
@@ -797,6 +800,10 @@ body {
   color: #565656;
   background-color: #f8f8f8;
 }
+body,
+html {
+  overflow-x: hidden;
+}
 /********************
 02. WORDPRESS BODY CLASSES
     style a page via class
@@ -937,6 +944,10 @@ h5,
   background-color: #546168;
   height: 300px;
   width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
 }
 .header.article-single {
   height: 120px;
@@ -955,8 +966,34 @@ h5,
   line-height: 100px;
 }
 .header #inner-header {
-  position: relative;
+  background-color: #546168;
+  float: left;
+  display: inline-block;
+  width: 100%;
   height: 100%;
+  padding: 0 20px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.header #outer-header {
+  background-color: #000;
+  display: inline-block;
+  position: absolute;
+  float: left;
+  color: #fff;
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+  padding: 0 20px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.header #outer-header p {
+  max-width: 50%;
 }
 .header #peaks {
   display: block;
@@ -968,7 +1005,7 @@ h5,
   background-size: 100% auto;
   background-repeat: no-repeat;
   float: left;
-  height: 200px;
+  height: 180px;
   background-position: bottom left;
   margin-left: -20px;
   -webkit-backface-visibility: hidden !important;
@@ -1030,7 +1067,7 @@ h5,
 .header .header-social {
   position: absolute;
   bottom: 0;
-  right: 0;
+  right: 20px;
   color: white;
   font-size: 14px;
 }
@@ -1467,6 +1504,34 @@ and more scalable.
 *********************/
 .footer {
   clear: both;
+  background-color: #546168;
+  font-weight: 500;
+  font-size: 11px;
+  margin-top: 1em;
+}
+.footer #inner-footer {
+  position: relative;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.footer #inner-footer .footer-left {
+  background-color: #546168;
+  padding: 2em;
+  float: left;
+  display: inline-block;
+  color: #0f171d;
+  width: 100%;
+  height: 100%;
+}
+.footer #inner-footer .footer-right {
+  background-color: #fff;
+  display: inline-block;
+  padding: 2em;
+  position: absolute;
+  float: left;
+  color: #000;
+  width: 100%;
+  height: 100%;
 }
 /*
 	if you checked out the link above:
