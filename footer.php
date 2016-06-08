@@ -41,6 +41,7 @@
 		    
 		    // If we need pagination
 		    pagination: '.swiper-pagination',
+		    paginationClickable: 'true',
 		    
 		  })        
 		</script>
