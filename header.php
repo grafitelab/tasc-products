@@ -10,6 +10,9 @@
 
 		<title><?php wp_title(''); ?></title>
 
+		<!--Typography-->
+		<link rel="stylesheet" type="text/css" href="https://cloud.typography.com/6718272/768424/css/fonts.css" />
+
 		<!-- Google Chrome Frame for IE -->
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
@@ -47,7 +50,15 @@
 
 				<div id="inner-header" class="wrap clearfix">
 
-					<a id="logo" href="<?php echo home_url(); ?>" rel="nofollow"></a>
+					<a id="logo" href="<?php echo home_url(); ?>" rel="nofollow">
+		            		<div id="peaks">
+			            		<div class="peak" id="peak1" ></div>
+			            		<div class="peak" id="peak2"></div>
+			            		<div class="peak" id="peak3"></div>
+			            		<div class="peak" id="peak4"></div>
+		            		</div>
+						
+					</a>
 
 					<!-- if you'd like to use the site description you can un-comment it below -->
 					<?php // bloginfo('description'); ?>

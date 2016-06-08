@@ -35,7 +35,7 @@ and will be used across all viewports.
 *********************/
 
 body {
-	font-family: @serif;
+	font-family: @custom;
 	font-size: 100%;
 	line-height: 1.5;
 	color: #565656;
@@ -125,8 +125,8 @@ a, a:visited {
 ******************************************************************/
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
-	font-family: @sans-serif;
 	text-rendering: optimizelegibility;
+	font-family: @customlarge;
 	font-weight: 400;
 	/*
 	if you're going to use webfonts, be sure to check your weights
@@ -200,10 +200,24 @@ h5, .h5 {
 		height: 100%;
 	}
 
-	#logo {
-		width: 100px;
-		height: 79.18781725888326px;
+	#peaks {
+		display: block;
+		width: 222px;
+		padding-left: 30px;
+		text-align: center;		
 		
+	}
+	
+	.peak {background-size:100% auto; background-repeat:no-repeat; float:left; height:200px; background-position:bottom left; margin-left:-20px;  -webkit-backface-visibility: hidden !important; .animation(fadein,.5s);}
+
+	#peak1 {background-image:url('../images/1.png'); background-size:42px auto; width:42px; /*width:73px*/ .animation(scaleup,.8s) ; }
+	#peak2 {background-image:url('../images/2.png'); background-size:42px auto; width:42px; .animation(scaleup,1.1s); }
+	#peak3 {background-image:url('../images/3.png'); background-size:51px auto; width:51px; .animation(scaleup,1.3s); }
+	#peak4 {background-image:url('../images/4.png'); background-size:42px auto; width:42px;.animation(scaleup,1s); }
+
+	#logo {
+		/*width: 100px;
+		height: 79.18781725888326px;
 		background-image: url(../images/logo.png);
 		background-size: cover;
 		
@@ -211,9 +225,12 @@ h5, .h5 {
 		
 		position: absolute;
 		top: 50%;
-		left: 50%;
+		left: 50%;*/
 
-		margin: -39.593908629px 0 0 -50px;
+		width:117px;
+		display:block;
+		.animation(fadein,.2s);
+		margin:0 auto;
 	}
 
 	.header-social {
@@ -307,6 +324,8 @@ and more scalable.
 			.entry-content{
 				padding-left: 20px;
 				padding-right: 20px;
+				font-size:12px;
+				text-align: justify;
 			}
 			
 			.storelink{

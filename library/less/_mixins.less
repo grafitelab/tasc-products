@@ -82,7 +82,8 @@ TYPOGRAPHY
 
 @sans-serif:         "Helvetica Neue", Helvetica, Arial, sans-serif; 
 @serif:              "Georgia", Cambria, Times New Roman, Times, serif; 
-
+@custom: 			"Gotham SSm A","Gotham SSm B","Myriad Pro" ,"Helvetica Neue", "Trebuchet MS", "Arial";
+@customlarge: 			"Gotham A","Gotham B","Myriad Pro" ,"Helvetica Neue", "Trebuchet MS", "Arial";
 
 /* 	To embed your own fonts, use this syntax
 	and place your fonts inside the 
@@ -213,6 +214,41 @@ BOX SHADOW
 	   -moz-box-shadow: @x;
 			box-shadow: @x; 
 }
+
+/*********************
+ANIMATION
+*********************/
+
+
+.scale(@ratio:1.5){
+  .transform(scale(@ratio));
+}
+.transform(...) {
+  -webkit-transform: @arguments;
+  -moz-transform: @arguments;
+  -o-transform: @arguments;
+  -ms-transform: @arguments;
+  transform: @arguments;
+}
+
+.animation(@animation:scaleup,@time:.5s) {
+  animation: @animation @time; -webkit-animation: @animation @time; /* Safari and Chrome */ 
+}
+
+
+@keyframes scaleup
+{
+from {.scale(0);}
+to {.scale(1);}
+}
+
+@-webkit-keyframes scaleup /* Safari and Chrome */
+{
+from {.scale(0);}
+to {.scale(1);}
+}
+
+
 
 /*********************
 BUTTONS
