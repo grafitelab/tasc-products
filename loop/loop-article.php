@@ -30,7 +30,7 @@
 			}
 			
 			else{
-				the_post_thumbnail('thumb-normal');
+				the_post_thumbnail('thumb-big');
 			} 
 		?>
 	</div>
