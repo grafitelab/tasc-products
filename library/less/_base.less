@@ -179,11 +179,7 @@ h5, .h5 {
 	background-color: @tasc-grey;
 	height: 300px;
 	width: 100%;
-	overflow-x:auto;
-	overflow-y:hidden;
-	position:relative;
-	-webkit-overflow-scrolling: touch;
-	
+	position:relative;	
 	&.article-single {
 		height: 120px;
 		background-color: transparent;
@@ -203,23 +199,20 @@ h5, .h5 {
 		}
 	}
 	
+	.header-slider-container{
+		width: 100%;
+		height: 100%;
+	}
 	
 	#inner-header {
 		background-color:  @tasc-grey;
-		float:left;
-		display:inline-block;
-		width:100%;
 		height:100%;
 		padding:0 20px;
 		.boxSizing();
 	}
 	#outer-header {
 		background-color:  @black;
-		display:inline-block;
-		position:absolute;
-		float:left;
 		color: @white;
-		width:100%;
 		height:100%;
 		font-size:20px;
 		padding:0 20px;
@@ -227,6 +220,7 @@ h5, .h5 {
 		p{
 			max-width:50%;
 		}
+		
 		.boxSizing();
 	}
 
@@ -334,6 +328,19 @@ and more scalable.
 						width: 100%;
 						min-height: 400px;
 					}
+				}
+				.gallery-container{
+					width: 100%;
+				    height: 400px;
+				    position: relative;
+				    overflow: hidden;
+				    .swiper-slide{
+					    background-size: cover;
+					    background-position: center center;
+				    }
+				    .swiper-pagination-bullet-active{
+					    background: white;
+				    }
 				}
 			}
 			
@@ -985,23 +992,16 @@ and more scalable.
 	
 	#inner-footer {
 		position:relative;
-		overflow-x:auto;
-		-webkit-overflow-scrolling: touch;
 		.footer-left {
 			background-color:  @tasc-grey;
 			padding:2em;
-			float:left;
-			display:inline-block;
 			color: #0f171d;
 			width:100%;
 			height:100%;
 		}
 		.footer-right {
 			background-color:  @white;
-			display:inline-block;
 			padding:2em;
-			position:absolute;
-			float:left;
 			color: @black;
 			width:100%;
 			height:100%;

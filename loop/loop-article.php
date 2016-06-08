@@ -2,31 +2,36 @@
 						    
 	<div class="article-media-container">
 		<?php
-			$image = get_post_meta(get_the_ID(), 'opt_fimage', true);
-			$video = get_post_meta(get_the_ID(), 'opt_fvideo', true);
-			$gallery = get_post_meta(get_the_ID(), 'opt_fgallery', true);
+			$media_radio = get_post_meta(get_the_ID(), 'opt_media_radio', true);
 	
-			if(has_post_video() and ($video == "on" or $video == 1)){
+			if(has_post_video() and ($media_radio == "video")){
 				the_post_video();
-			} elseif($gallery == "on" or $gallery == 1) {
+			} elseif($media_radio == "gallery") {
 			
 			$galleryArray = get_post_gallery_ids($post->ID); ?>
 			
-			<div class="entry-slider">
-				<ul>
-			<?php
+			<!-- Slider main container -->
+			<div class="gallery-container">
+			    <!-- Additional required wrapper -->
+			    <div class="swiper-wrapper">
+			        <!-- Slides -->
+			        <?php
 
-			foreach ($galleryArray as $id) { ?>
-			
-			    <li><img src="<?php echo wp_get_attachment_url( $id ); ?>"></li>
-			
-			<?php } ?>
-			
-				</ul>
+					foreach ($galleryArray as $id) { ?>
+					
+						<div class="swiper-slide" style="background-image: url(<?php echo wp_get_attachment_url( $id ); ?>)"></div>
+					
+					<?php } ?>
+					
+			    </div>
+			    <!-- If we need pagination -->
+			    <div class="swiper-pagination"></div>
 			</div>
 			
 			<?php
 				
+			} elseif($media_radio == "image"){
+				the_post_thumbnail('thumb-big');
 			}
 			
 			else{
@@ -53,7 +58,7 @@
 			if (($productCustomMeta['description'] != "N/A") and ($productCustomMeta['storelink'] != "#")){
 		?>
 		
-		<p class="storelink"><a href="<?php echo $productCustomMeta['storelink']; ?>"><?php echo $productCustomMeta['description']; ?></a></p>
+		<p class="storelink"><a href="<?php echo $productCustomMeta['storelink']; ?>" target="_blank"><?php echo $productCustomMeta['description']; ?></a></p>
 		
 		<?php 
 				} 

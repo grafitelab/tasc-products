@@ -47,8 +47,12 @@
 		<div id="container">
 
 			<header class="header <?php if(is_single() && ('post' == get_post_type())){ printf("article-single"); } if(is_single() && ('product' == get_post_type())){ printf("product-single"); } ?>" role="banner">
-
-				<div id="inner-header" class="clearfix">
+			<!-- Slider main container -->
+			<div class="header-slider-container">
+			    <!-- Additional required wrapper -->
+			    <div class="swiper-wrapper">
+				    
+				<div id="inner-header" class="clearfix swiper-slide">
 
 					<a id="logo" href="<?php echo home_url(); ?>" rel="nofollow">
 		            		<div id="peaks">
@@ -69,8 +73,13 @@
 				</div> <!-- end #inner-header -->
 				
 				
-				<div id="outer-header">
+				<div id="outer-header" class="swiper-slide">
 					<p>Selezione Italiana dei Migliori Prodotti al Mondo.</p>
 				</div>
+				
+				</div>
+
+			</div>
+			<!-- end slider -->
 
 			</header> <!-- end header -->

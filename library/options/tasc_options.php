@@ -29,23 +29,19 @@ function cmb_sample_metaboxes( array $meta_boxes ) {
 		'pages'      => array( 'product', ), // Post type
 		'context'    => 'side',
 		'priority'   => 'high',
-		'show_names' => true, // Show field names on the left
+		'show_names' => false, // Show field names on the left
 		// 'cmb_styles' => true, // Enqueue the CMB stylesheet on the frontend
 		'fields'     => array(
 			array(
-				'name' => __( 'Immagine', 'cmb' ),
-				'id'   => $prefix . 'fimage',
-				'type' => 'checkbox',
-			),
-			array(
-				'name' => __( 'Video', 'cmb' ),
-				'id'   => $prefix . 'fvideo',
-				'type' => 'checkbox',
-			),
-			array(
-				'name' => __( 'Galleria', 'cmb' ),
-				'id'   => $prefix . 'fgallery',
-				'type' => 'checkbox',
+				'name'    => __( 'Media in evidenza', 'cmb' ),
+				'desc'    => __( 'Scegli una opzione di visualizzazione per il contenuto featured', 'cmb' ),
+				'id'      => $prefix . 'media_radio',
+				'type'    => 'radio',
+				'options' => array(
+					'image' => __( 'Immagine', 'cmb' ),
+					'video' => __( 'Video', 'cmb' ),
+					'gallery' => __( 'Galleria', 'cmb' ),
+				),
 			),
 		),
 	);
