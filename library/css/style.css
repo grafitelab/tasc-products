@@ -947,20 +947,10 @@ h5,
   position: relative;
 }
 .header.article-single {
-  height: 120px;
   background-color: transparent;
-  position: absolute;
-  top: 0;
-  z-index: 2;
-}
-.header.article-single #logo {
-  width: 60px;
-  height: 47.51269035532px;
-  left: 0;
-  margin-left: 0;
 }
 .header.article-single .header-social {
-  line-height: 100px;
+  display: none;
 }
 .header .header-slider-container {
   width: 100%;
@@ -974,6 +964,12 @@ h5,
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
+}
+.header #inner-header.article-single {
+  background-color: transparent;
+}
+.header #inner-header.article-single .header-social {
+  display: none;
 }
 .header #outer-header {
   background-color: #000000;
@@ -1140,15 +1136,37 @@ and more scalable.
   text-decoration: underline;
 }
 .hentry .entry-content {
+  padding-top: 20px;
   padding-left: 20px;
   padding-right: 20px;
+  padding-bottom: 20px;
+  position: relative;
   font-size: 13px;
   text-align: justify;
 }
-.hentry .storelink {
+.hentry .entry-content iframe {
+  width: 100%;
+}
+.hentry .entry-text {
+  position: relative;
+}
+.hentry .entry-shade {
+  width: 100%;
+  padding-top: 30%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 8%, #ffffff 94%, #ffffff 100%);
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 8%, #ffffff 94%, #ffffff 100%);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 8%, #ffffff 94%, #ffffff 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffffff', endColorstr='#ffffff', GradientType=0);
+}
+.hentry .storelink,
+.hentry .readmore {
   text-align: center;
 }
-.hentry .storelink a {
+.hentry .storelink a,
+.hentry .readmore a {
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 700;

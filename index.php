@@ -6,7 +6,9 @@
 			
 				    <div id="main" class="eightcol first clearfix" role="main">
 					    
-					    <?php query_posts( array(
+					    <?php 
+						$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;    
+						query_posts( array(
 					     'post_type' => array( 'post', 'product' ),
 					     'showposts' => 5 )
 					     ); ?>

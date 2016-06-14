@@ -53,9 +53,9 @@ function custom_post_product() {
 	); /* end of register post type */
 	
 	/* this adds your post categories to your custom post type */
-	register_taxonomy_for_object_type('category', 'product');
+	// register_taxonomy_for_object_type('category', 'product');
 	/* this adds your post tags to your custom post type */
-	register_taxonomy_for_object_type('post_tag', 'product');
+	// register_taxonomy_for_object_type('post_tag', 'product');
 	
 } 
 
