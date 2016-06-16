@@ -84,7 +84,14 @@ you like. Enjoy!
 */
 
 /***** AMAZON AFFILIATE LINK with skimbu-08 ****/
-add_filter('the_content','filter_amazon_associate_filter'); add_filter('comment_text','filter_amazon_associate_filter'); function filter_amazon_associate_filter($content) { $affiliate_code="skimbu08-21"; $content=preg_replace( '/http:\/\/[^>]*?amazon.([^\/]*)\/([^>]*?ASIN|gp\/product|exec\/obidos\/tg\/detail\/-|[^>]*?dp)\/([0-9a-zA-Z]{10})[a-zA-Z0-9#\/\*\-\?\&\%\=\,\._;]*/i', 'http://www.amazon.$1/exec/obidos/ASIN/$3/'.$affiliate_code, $content ); return $content; }
+function filter_amazon_associate_filter($content) {
+   $affiliate_code="skimbu08-21"; $content=preg_replace( '/http:\/\/[^>]*?amazon.([^\/]*)\/([^>]*?ASIN|gp\/product|exec\/obidos\/tg\/detail\/-|[^>]*?dp)\/([0-9a-zA-Z]{10})[a-zA-Z0-9#\/\*\-\?\&\%\=\,\._;]*/i', 'http://www.amazon.$1/exec/obidos/ASIN/$3/'.$affiliate_code, $content ); return $content;
+   
+}
+add_filter('the_content','filter_amazon_associate_filter'); add_filter('comment_text','filter_amazon_associate_filter');
+
+
+
 
 /************* ACTIVE SIDEBARS ********************/
 
