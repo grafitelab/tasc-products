@@ -43,15 +43,15 @@
 						
 	<header class="article-header">
 							
-		<h1 class="h2"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
+		<h1 class="h2"><?php the_title(); ?></h1>
 		<h2 class="h5"><?php
 			if('product' == get_post_type()){
 				//list terms in a given taxonomy (useful as a widget for twentyten)
 				$taxonomy = 'product_cat';
-				$tax_terms = get_terms($taxonomy);
+				$tax_terms = get_the_terms($post->ID,$taxonomy);
 				
 				foreach ($tax_terms as $tax_term) {
-				echo '<a href="' . esc_attr(get_term_link($tax_term, $taxonomy)) . '" title="' . sprintf( __( "Guarda tutti i post in %s" ), $tax_term->name ) . '" ' . '>' . $tax_term->name.'</a> ';
+				echo '<a href="' . esc_attr(get_term_link($tax_term)) . '" title="' . sprintf( __( "Guarda tutti i post in %s" ), $tax_term->name ) . '" ' . '>' . $tax_term->name.'</a> ';
 				}
 
 				
@@ -65,20 +65,9 @@
 					
 	<section class="entry-content clearfix">
 		<div class="entry-text">
-		<?php
-			$words = explode(" ",strip_tags(get_the_content()));
-			$content = implode(" ",array_splice($words,0,200));
-			echo $content;
-		?>
-		<?php
-			if($content != get_the_content()){
-				echo '<div class="entry-shade"></div>';
-		?>
+			<?php the_content(); ?>
+			<div class="entry-shade"></div>
 		</div>
-				<p class="readmore"><a href="<?php the_permalink() ?>">Leggi tutto</a></p>
-		<?php
-			} ?>
-		<?php //the_content(); ?>
 		<?php 
 			if('product' == get_post_type()){ 
 			$productCustomMeta = get_post_meta($post->ID,'_my_meta',TRUE);

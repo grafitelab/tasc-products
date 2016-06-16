@@ -74,7 +74,10 @@
 				
 				
 				<div id="outer-header" class="swiper-slide">
-					<p>Selezione Italiana dei Migliori Prodotti al Mondo.</p>
+					<div class="one-fourth">
+						<h2>TASC</h2>
+						<p>Siamo il Cast italiano che seleziona e divulga i Migliori Prodotti al Mondo. Tasc è l'acronimo di "Tecnologie Arti Stili e Cose".</p>
+					</div>
 				</div>
 				
 				</div>

@@ -96,6 +96,11 @@ body,html {
 	margin: 0 auto;
 }
 
+.one-fourth {
+	width:100%;
+}
+
+
 /*********************
 04. LINK STYLES
 *********************/
@@ -209,11 +214,15 @@ h5, .h5 {
 		background-color:  @black;
 		color: @white;
 		height:100%;
-		font-size:20px;
 		padding:0 20px;
 		
+		h2 {
+			color: @tasc-grey-lighter;
+			font-size:18px;
+			font-weight:700;
+		}
 		p{
-			max-width:50%;
+			font-size:12px;
 		}
 		
 		.boxSizing();
@@ -359,8 +368,9 @@ and more scalable.
 				padding-right: 20px;
 				padding-bottom: 20px;
 				position: relative;
-				font-size:13px;
+				font-size:14px;
 				text-align: justify;
+				cursor: pointer;
 				iframe{
 					width: 100%;
 				}
@@ -368,11 +378,20 @@ and more scalable.
 			
 			.entry-text{
 				position: relative;
+				max-height:120px;
+				overflow:hidden;
+			}
+			
+			.enty-text-shown {
+				max-height:none !important;
+				.entry-shade {
+					display:none;
+				}
 			}
 			
 			.entry-shade{
 				width: 100%;
-			    padding-top: 30%;
+			    padding-top: 10%;
 			    position: absolute;
 			    bottom: 0;
 			    left: 0;
@@ -388,7 +407,12 @@ and more scalable.
 					text-decoration: none;
 					text-transform: uppercase;
 					font-weight: 700;
-					font-family: sans-serif;
+					padding:10px;
+					display:block;
+					.transition(all,.2s);
+					&:hover {
+						background-color: @tasc-lightgray;
+					}
 				}
 			}
 	

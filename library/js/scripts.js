@@ -39,7 +39,13 @@ jQuery(document).ready(function($) {
     
     /* getting viewport width */
     var responsive_viewport = $(window).width();
-    
+	    
+	$( ".entry-text" ).click(function(e) {
+		e.stopPropagation()
+	  $( this ).addClass("enty-text-shown");
+	});    
+	
+	
     /* if is below 481px */
     if (responsive_viewport < 481) {
     
