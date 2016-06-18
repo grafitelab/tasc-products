@@ -1559,9 +1559,13 @@ and more scalable.
   font-weight: 500;
   font-size: 11px;
   margin-top: 1em;
+  height: 100px;
 }
 .footer #inner-footer {
   position: relative;
+}
+.footer #inner-footer .footer-slider-container {
+  height: 100px;
 }
 .footer #inner-footer .footer-left {
   background-color: #546168;
