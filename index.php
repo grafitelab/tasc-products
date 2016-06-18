@@ -5,15 +5,17 @@
 				<div id="inner-content" class="wrap clearfix">
 			
 				    <div id="main" class="eightcol first clearfix" role="main">
-					    
-					    <?php 
-						$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;    
-						query_posts( array(
-					     'post_type' => array( 'post', 'product' ),
-					     'showposts' => 5 )
-					     ); ?>
+					     
+					    <?php
+						$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+						$loop = new WP_Query( array(
+						'post_type' => 'product',
+						'posts_per_page' => 10,
+						'orderby'=> 'menu_order',
+						'paged'=>$paged
+						) ); ?>
 
-					    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+					    <?php if ($loop->have_posts()) : while ($loop->have_posts()) : $loop->the_post(); ?>
 					    
 					    <?php get_template_part( 'loop/loop', 'article' ); ?>
 					
