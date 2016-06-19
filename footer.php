@@ -12,7 +12,7 @@
 						Developed by Matteo Pelosi.
 					</div>
 					<div class="footer-right swiper-slide">
-						Alberto Ziveri, Mario Calì, Jacopo Agostini, Matteo Pelosi...
+						Il Cast è il nostro gruppo, composto da Alberto Gerin, Roberto Collorafi, Ugo Possenti, Alessio Romaniello, Luca Toscano, Giorgio Coltella, Gioele Citton, Lorenzo Berni, Lavinia Maisto e Patrizio Stella.
 					</div>
 					
 					</div>

@@ -51,7 +51,8 @@
 				$tax_terms = get_the_terms($post->ID,$taxonomy);
 				
 				foreach ($tax_terms as $tax_term) {
-				echo '<a href="' . esc_attr(get_term_link($tax_term)) . '" title="' . sprintf( __( "Guarda tutti i post in %s" ), $tax_term->name ) . '" ' . '>' . $tax_term->name.'</a> ';
+				//echo '<a href="' . esc_attr(get_term_link($tax_term)) . '" title="' . sprintf( __( "Guarda tutti i post in %s" ), $tax_term->name ) . '" ' . '>' . $tax_term->name.'</a> ';
+				echo $tax_term->name;
 				}
 
 				
@@ -82,12 +83,11 @@
 		?>
 	</section> <!-- end article section -->
 						
-	<footer class="article-footer">
+	<!--<footer class="article-footer">
     	<p class="byline vcard h5"><?php
-			printf(__('Di <span class="author">%1$s</span>', 'bonestheme'), bones_get_the_author_posts_link());
+			//printf(__('Di <span class="author">%1$s</span>', 'bonestheme'), bones_get_the_author_posts_link());
+			$author = get_the_author(); echo "Pubblicato da ".$author;
         ?></p>
-
-
 	</footer> <!-- end article footer -->
 					
 </article> <!-- end article -->

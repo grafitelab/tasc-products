@@ -112,3 +112,26 @@ jQuery(document).ready(function($) {
 	w.addEventListener( "orientationchange", restoreZoom, false );
 	w.addEventListener( "devicemotion", checkTilt, false );
 })( this );
+
+
+//CALL BACK AJAX LOAD MORE
+$(function() {
+  $.fn.almComplete = function(alm){
+	$( ".entry-text" ).click(function(e) {
+		e.stopPropagation()
+	  $( this ).addClass("enty-text-shown");
+	});    
+    
+	  var mySwiper = new Swiper ('.gallery-container', {
+	    // Optional parameters
+	    direction: 'horizontal',
+	    loop: true,
+	    
+	    // If we need pagination
+	    pagination: '.swiper-pagination',
+	    paginationClickable: 'true',
+	    
+	  })        
+    
+  };
+})(jQuery);

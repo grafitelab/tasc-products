@@ -11,7 +11,7 @@
 						$loop = new WP_Query( array(
 						'post_type' => 'product',
 						'posts_per_page' => 10,
-						'orderby'=> 'menu_order',
+						'orderby'=> 'date',
 						'paged'=>$paged
 						) ); ?>
 
@@ -20,17 +20,12 @@
 					    <?php get_template_part( 'loop/loop', 'article' ); ?>
 					
 					    <?php endwhile; ?>	
-					
-					        <?php if (function_exists('bones_page_navi')) { ?>
-					            <?php bones_page_navi(); ?>
-					        <?php } else { ?>
 					            <nav class="wp-prev-next">
 					                <ul class="clearfix">
-					        	        <li class="prev-link"><?php next_posts_link(__('&laquo; Older Entries', "bonestheme")) ?></li>
-					        	        <li class="next-link"><?php previous_posts_link(__('Newer Entries &raquo;', "bonestheme")) ?></li>
+					        	        <li class="prev-link"><?php if(get_previous_posts_link()) {next_posts_link(__('&laquo; Older Entries', "bonestheme")); } ?></li>
+					        	        <li class="next-link"><?php if(get_next_posts_link()) {previous_posts_link(__('Newer Entries &raquo;', "bonestheme")); } ?></li>
 					                </ul>
 					            </nav>
-					        <?php } ?>		
 					
 					    <?php else : ?>
 					    

@@ -68,7 +68,7 @@
 					<?php // bloginfo('description'); ?>
 
 
-					<p class="header-social" role="navigation"><a href="#">FB</a> | <a href="#">TW</a> | <a href="#">IG</a> | <a href="#">MAIL</a></p>
+					<p class="header-social" role="navigation"><a href="https://www.facebook.com/tascproject/">FB</a> | <a href="https://twitter.com/tascproject">TW</a> | <a href="https://www.instagram.com/tascproject/">IG</a> | <a href="mailto:cast@tasc.it">MAIL</a></p>
 
 				</div> <!-- end #inner-header -->
 				
@@ -76,7 +76,7 @@
 				<div id="outer-header" class="swiper-slide">
 					<div class="one-fourth">
 						<h2>TASC</h2>
-						<p>Siamo il Cast italiano che seleziona e divulga i Migliori Prodotti al Mondo. Tasc è l'acronimo di "Tecnologie Arti Stili e Cose".</p>
+						<p>Siamo il Cast italiano che seleziona e divulga i Migliori Prodotti al Mondo. Tasc è l'acronimo di "Tecnologie Arti Stili e Concetti". Qui è ancora molto vuoto, un motivo in più per tornare presto e sapere cosa i nostri sviluppatori metteranno ;)</p>
 					</div>
 				</div>
 				
