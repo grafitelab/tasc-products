@@ -56,8 +56,6 @@
 
 	<body <?php body_class(); ?>>
 
-		<div id="container">
-
 			<header class="header <?php if(is_single() && ('post' == get_post_type())){ printf("article-single"); } if(is_single() && ('product' == get_post_type())){ printf("product-single"); } ?>" role="banner">
 			<!-- Slider main container -->
 			<div class="header-slider-container">
@@ -98,3 +96,21 @@
 			<!-- end slider -->
 
 			</header> <!-- end header -->
+			
+			<!-- Apro il container in base al tipo di pagina -->
+		<?php if(is_single()) {
+			$large = get_post_meta($post->ID, 'opt_large', true);
+			if($large == "on" or $large == 1 or is_singular( 'video' ) or is_singular( 'product' ) or is_singular( 'column' )) { ?>
+				<?php 
+					global $post;
+					get_template_part( 'parts/side-sharebox' ); 
+				?>
+				<div id="container" class="super-full" <?php if(is_page('cast')) {?>class="grafitestyle" <?php } ?> >
+			<?php } else { ?>
+				<div id="container" <?php if(is_page('cast')) {?>class="grafitestyle" <?php } ?> >
+			<?php }
+			?>
+			<?php } else { ?>
+			<div id="container" <?php if(is_page('cast')) {?>class="grafitestyle" <?php } ?> >
+			<?php } ?>
+		

@@ -529,6 +529,9 @@ use color variables properly:
 http://sachagreif.com/sass-color-variables/
 */
 /*********************
+TO RGB
+*********************/
+/*********************
 TYPOGRAPHY
 *********************/
 /* 	To embed your own fonts, use this syntax
@@ -610,6 +613,11 @@ don't use the shorthand to define *different* corners.
 USAGE: .border-radius(4px); 
 
 */
+/* .rounded(4px); */
+/* NOTE: For older browser support (and some mobile), don't use the shorthand to define *different* corners. */
+/*********************
+LINKS
+*********************/
 /*********************
 TRANISTION
 *********************/
@@ -667,13 +675,21 @@ ANIMATION
 /*********************
 BUTTONS
 *********************/
+@-webkit-keyframes rotation {
+  from {
+    transform: rotate(45deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}
 .button,
 .button:visited {
   border: 1px solid #be0d37;
   border-top-color: #db0f3f;
   border-left-color: #db0f3f;
   padding: 4px 12px;
-  color: #fff;
+  color: #ffffff;
   display: inline-block;
   font-size: 11px;
   font-weight: bold;
@@ -701,7 +717,7 @@ BUTTONS
 .button:visited:hover,
 .button:focus,
 .button:visited:focus {
-  color: #fff;
+  color: #ffffff;
   border: 1px solid #be0d37;
   border-top-color: #9d0a2d;
   border-left-color: #9d0a2d;
@@ -799,6 +815,9 @@ body {
   line-height: 1.5;
   color: #565656;
   background-color: #f8f8f8;
+}
+body.single-post {
+  background-color: white;
 }
 body,
 html {
@@ -948,12 +967,16 @@ h5,
   height: 300px;
   width: 100%;
   position: relative;
+  z-index: 5;
 }
 .header.article-single {
-  background-color: transparent;
+  background-color: rgba(85, 98, 105, 0);
 }
 .header.article-single .header-social {
   display: none;
+}
+.header.article-single #inner-header {
+  background-color: rgba(85, 98, 105, 0);
 }
 .header .header-slider-container {
   width: 100%;
@@ -969,14 +992,14 @@ h5,
   box-sizing: border-box;
 }
 .header #inner-header.article-single {
-  background-color: transparent;
+  background-color: rgba(85, 98, 105, 0);
 }
 .header #inner-header.article-single .header-social {
   display: none;
 }
 .header #outer-header {
-  background-color: #000;
-  color: #fff;
+  background-color: #000000;
+  color: #ffffff;
   height: 100%;
   padding: 0 20px;
   -webkit-box-sizing: border-box;
@@ -1278,35 +1301,307 @@ and more scalable.
 /*********************
 09. POSTS & CONTENT STYLES SINGLE
 *********************/
-.article-super-header {
-  width: 100%;
-  height: 100vh;
-  background-color: #546168;
-  background-size: cover;
-  background-position: center center;
-}
-.article-super-header .article-super-shade {
-  background-color: black;
-  opacity: 0.5;
-  width: 100%;
-  height: 100vh;
+.super-full div.gradient {
   position: absolute;
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 87%, rgba(0, 0, 0, 0.7) 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(87%, rgba(0, 0, 0, 0.7)), color-stop(100%, rgba(0, 0, 0, 0.7)));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 87%, rgba(0, 0, 0, 0.7) 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 87%, rgba(0, 0, 0, 0.7) 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 87%, rgba(0, 0, 0, 0.7) 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 87%, rgba(0, 0, 0, 0.7) 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#b3000000', GradientType=0);
+  /* IE6-9 */
+  z-index: 1;
   top: 0;
   left: 0;
+  height: 100%;
+  width: 100%;
 }
-.article-super-header #super-title {
-  z-index: 1;
+.super-full #super-header {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
   position: relative;
+  min-height: 450px;
+  margin-top: -300px;
 }
-.article-super-header #super-title h1.single-title {
-  margin: 0;
-  text-align: center;
+.super-full #super-header header.header {
+  position: relative;
+  width: 100%;
+  z-index: 3;
+  background-color: #232323;
+  background-color: rgba(35, 35, 35, 0.8);
 }
-.article-super-header #super-title h1.single-title a {
-  line-height: 100vh;
-  text-transform: uppercase;
-  color: white;
-  font-weight: 600;
+.super-full #super-header #large-post-header {
+  position: absolute;
+  z-index: 2;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  max-height: 100%;
+}
+.super-full #super-header #large-post-header #full-post-info {
+  position: absolute;
+  bottom: 10%;
+  width: 70%;
+  left: 3%;
+  z-index: 4;
+  color: #ffffff;
+}
+.super-full #super-header #large-post-header #full-post-info #super-title h1 {
+  font-size: 2em;
+  width: 90%;
+  font-weight: 400;
+  font-family: "Gotham A", "Gotham B", "Myriad Pro", "Helvetica Neue", "Trebuchet MS", "Arial";
+}
+.super-full #super-header #large-post-header #full-post-info #super-title h1 a,
+.super-full #super-header #large-post-header #full-post-info #super-title h1 a:visited {
+  color: rgba(255, 255, 255, 0.95);
+}
+.super-full #super-header #large-post-header #full-post-info #super-title h1 a:hover,
+.super-full #super-header #large-post-header #full-post-info #super-title h1 a:visited:hover {
+  color: #ffffff !important;
+}
+.super-full #super-header #large-post-header #full-post-info #super-author {
+  position: relative;
+  bottom: 5%;
+}
+.super-full #super-header #large-post-header #full-post-info #super-author h2 {
+  height: 30px;
+  line-height: 30px;
+  font-weight: 400;
+  font-size: 1em;
+  font-family: "Gotham A", "Gotham B", "Myriad Pro", "Helvetica Neue", "Trebuchet MS", "Arial";
+}
+.super-full #super-header #large-post-header #full-post-info #super-author h2 .gravatar {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+  float: left;
+}
+.super-full #super-header #large-post-header #full-post-info #super-author h2 .gravatar img {
+  width: 100%;
+  height: auto;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+}
+.super-full #super-header #large-post-header #full-post-info #super-author h2 .author-details {
+  height: 30px;
+  line-height: 30px;
+  color: rgba(255, 255, 255, 0.76);
+}
+.super-full #super-header #large-post-header #full-post-info #super-author h2 a,
+.super-full #super-header #large-post-header #full-post-info #super-author h2 a:visited {
+  color: rgba(255, 255, 255, 0.76);
+  height: 60px;
+  display: inline-block;
+  border-bottom: 0;
+}
+.super-full #super-header #large-post-header #full-post-info #super-author h2 a:hover,
+.super-full #super-header #large-post-header #full-post-info #super-author h2 a:visited:hover {
+  color: #ffffff !important;
+}
+/*MODAL*/
+#lean_overlay {
+  display: none;
+}
+#fblikebox {
+  display: none;
+}
+article.single.post .thumbnail img {
+  max-width: 100%;
+  height: auto;
+}
+article.single.post header .cat {
+  margin-bottom: 1em;
+  display: block;
+  float: none;
+}
+article.single.post .post-content {
+  line-height: 30px;
+}
+article.single.post .post-content img {
+  width: 100%;
+  height: auto;
+}
+article.single.post .post-content .youtubevideo {
+  width: 100%;
+}
+article.single.post .post-content .youtubevideo iframe {
+  width: 100%;
+}
+article.single.post footer.article-footer {
+  height: auto;
+}
+article.single.post footer.article-footer .post-detailed-info {
+  padding: 1.5em 0;
+  border-bottom: 1px solid #f1f1f1;
+}
+article.single.post footer.article-footer .post-detailed-info:last-child {
+  border-bottom: 0px;
+}
+article.single.post footer.article-footer .meta {
+  width: 100%;
+  float: none;
+  max-width: 100%;
+}
+article.single.post footer.article-footer .tags {
+  width: 100%;
+  float: none;
+  max-width: 100%;
+  padding: 1em 0;
+  display: block;
+  font-size: .9em;
+  padding: 2em 0;
+}
+article.single.post footer.article-footer .tags a,
+article.single.post footer.article-footer .tags a:visited {
+  color: #7b7b7b;
+  border-bottom: 1px solid transparent;
+  text-decoration: none;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  /* on hover */
+  /* on click */
+}
+article.single.post footer.article-footer .tags a:hover,
+article.single.post footer.article-footer .tags a:visited:hover,
+article.single.post footer.article-footer .tags a:focus,
+article.single.post footer.article-footer .tags a:visited:focus {
+  color: #404040;
+  border-bottom: 1px solid #7b7b7b;
+}
+article.single.post footer.article-footer .tags a:active,
+article.single.post footer.article-footer .tags a:visited:active {
+  color: #1a1a1a;
+}
+article.single.post footer.article-footer .tags .tags_icon {
+  display: inline-block;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+article.single.post .theauthor {
+  padding: 2em 0;
+  border-bottom: 2px solid #e7e7e7;
+  margin: 2em 0;
+}
+article.single.post .theauthor .image {
+  float: left;
+  width: 25%;
+  max-width: 150px;
+  margin-top: 0;
+}
+article.single.post .theauthor .image img {
+  width: 100%;
+  height: auto;
+  float: right;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+}
+article.single.post .theauthor .about {
+  max-width: 70%;
+  float: right;
+  text-align: justify;
+}
+article.single.post .theauthor .about h1 {
+  margin: -5px 0 8px 0;
+}
+article.single.post .theauthor .about p {
+  display: inline;
+}
+article.single.post .theauthor ul {
+  padding-left: 0;
+  margin-top: 10px;
+}
+article.single.post .theauthor ul li {
+  float: left;
+  margin-right: 5px;
+  list-style-type: none;
+}
+article.single.post #related_stories {
+  overflow: hidden;
+  margin-bottom: 2em;
+  border-bottom: 2px solid #e7e7e7;
+  padding-bottom: 2em;
+}
+article.single.post #related_stories article {
+  margin: .5em 0;
+  border-bottom: 0px;
+  display: block;
+}
+article.single.post #related_stories .tasc-post {
+  max-height: 245px;
+  overflow: hidden;
+}
+article.single.post #related_stories .tasc-post:hover .overlay {
+  opacity: .2 !important;
+}
+article.single.post #related_stories .overlay {
+  opacity: .7;
+}
+article.single.post #related_stories .title {
+  font-size: 1.4em;
+}
+ul.social .twitter:hover,
+ul.social .twitter:focus {
+  background-color: #67c9ed;
+  border: 0px;
+  color: #fff !important;
+}
+ul.social .twitter:active {
+  background-color: #1a1a1a;
+}
+ul.social .facebook:hover,
+ul.social .facebook:focus {
+  background-color: #3174bf;
+  border: 0px;
+  color: #fff !important;
+}
+ul.social .facebook:active {
+  background-color: #1a1a1a;
+}
+ul.social .instagram:hover,
+ul.social .instagram:focus {
+  background-color: #a42131;
+  border: 0px;
+  color: #fff !important;
+}
+ul.social .instagram:active {
+  background-color: #1a1a1a;
+}
+ul.social .flickr:hover,
+ul.social .flickr:focus {
+  background-color: #dd34db;
+  border: 0px;
+  color: #fff !important;
+}
+ul.social .flickr:active {
+  background-color: #1a1a1a;
+}
+ul.social .linkedin:hover,
+ul.social .linkedin:focus {
+  background-color: #4a628f;
+  border: 0px;
+  color: #fff !important;
+}
+ul.social .linkedin:active {
+  background-color: #1a1a1a;
 }
 /******************************************************************
 09. PAGE NAVI STYLES
@@ -1576,9 +1871,9 @@ and more scalable.
   height: 100%;
 }
 .footer #inner-footer .footer-right {
-  background-color: #fff;
+  background-color: #ffffff;
   padding: 2em;
-  color: #000;
+  color: #000000;
   width: 100%;
   height: 100%;
 }
@@ -1673,7 +1968,6 @@ FOOTER STYLES
 check your menus here. do they look good?
 do they need tweaking?
 */
-  /* end .footer-links */
 }
 /*
 TABLET & SMALLER LAPTOPS
@@ -1852,7 +2146,6 @@ mobile. Make sure to double check these!
 			the footer.
 			*/
   }
-  /* end .footer-links */
 }
 /*
 DESKTOP
@@ -1860,88 +2153,20 @@ This is the average viewing window. So Desktops, Laptops, and
 in general anyone not viewing on a mobile device. Here's where
 you can add resource intensive styles.
 */
-@media only screen and (min-width: 1030px) {
-  /******************************************************************
-Site Name: 
-Author: 
-
-Stylesheet: Desktop Stylsheet
-
-This is the desktop size. It's larger than an iPad so it will only
-be seen on the Desktop. 
-
-******************************************************************/
-}
 /*
 LARGE VIEWING SIZE
 This is for the larger monitors and possibly full screen viewers.
 */
-@media only screen and (min-width: 1240px) {
-  /******************************************************************
-Site Name: 
-Author: 
-
-Stylesheet: Super Large Monitor Stylesheet
-
-You can add some advanced styles here if you like. This kicks in
-on larger screens.
-
-******************************************************************/
-}
 /*
 RETINA (2x RESOLUTION DEVICES)
 This applies to the retina iPhone (4s) and iPad (2,3) along with
 other displays with a 2x resolution. You can also create a media
 query for retina AND a certain size if you want. Go Nuts.
 */
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
-  /******************************************************************
-Site Name: 
-Author: 
-
-Stylesheet: Retina Screens & Devices Stylesheet
-
-When handling retina screens you need to make adjustments, especially
-if you're not using font icons. Here you can add them in one neat
-place.
-
-******************************************************************/
-  /* 
-
-EXAMPLE 
-Let's say you have an image and you need to make sure it looks ok
-on retina screens. Let's say we have an icon which dimension are
-24px x 24px. In your regular stylesheets, it would look something
-like this:
-
-.icon {
-	width: 24px;
-	height: 24px;
-	background: url(img/test.png) no-repeat;
-}
-
-For retina screens, we have to make some adjustments, so that image
-doesn't look blurry. So, taking into account the image above and the
-dimensions, this is what we would put in our retina stylesheet:
-
-.icon {
-	background: url(img/test@2x.png) no-repeat;
-	background-size: 24px 24px;
-}
-
-So, you would create the same icon, but at double the resolution, meaning 
-it would be 48px x 48px. You'd name it the same, but with a @2x at the end
-(this is pretty standard practice). Set the background image so it matches
-the original dimensions and you are good to go. 
-
-*/
-}
 /*
 iPHONE 5 MEDIA QUERY
 Want to get fancy for no good reason? Knock yourself out.
 */
-@media (device-height: 568px) and (-webkit-min-device-pixel-ratio: 2) {
-}
 /*
 PRINT STYLESHEET
 Feel free to customize this. Remember to add things that won't make

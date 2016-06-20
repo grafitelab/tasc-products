@@ -57,6 +57,15 @@ http://0to255.com/
 @tasc-background:	#f8f8f8;
 @tasc-black:		#131313;
 
+//Grafite's Grays, from ligher to darker
+@tascpure: #f1f1f1; 					//SECONDARY GRAY - grigio super chiaro
+@lightgray: #e7e7e7; 					//Usato per bordo sotto l'header
+@tascsmoke: #b8b8b8;
+@tascgray: #7b7b7b;					//usato per hover text, per grigio visibile su grafite
+@text:	#404040; 					//Grigio ufficiale antracite scuro Tasc, sfondo del tasc-button, usato anche su @darkgrafite
+@grafite: #232323;					//light grafite per bordi sottili su darkgrafite
+@darkgrafite: #1a1a1a;
+
 @alert-yellow:      #ebe16f;
 @alert-red:         #fbe3e4;
 @alert-green:       #e6efc2;
@@ -79,6 +88,27 @@ http://sachagreif.com/sass-color-variables/
 
 
 /*********************
+TO RGB
+*********************/
+
+.bgRGB(@color,@alpha){
+  @myred:red(@color);
+  @mygreen:green(@color);
+  @myblue:blue(@color);
+  background-color: @color;
+  background-color: rgba(@myred,@mygreen,@myblue,@alpha);
+}
+
+.colorRGB(@color,@alpha){
+  @myred:red(@color);
+  @mygreen:green(@color);
+  @myblue:blue(@color);
+  color: @color;
+  color: rgba(@myred,@mygreen,@myblue,@alpha);
+}
+
+
+/*********************
 TYPOGRAPHY
 *********************/
 
@@ -86,6 +116,8 @@ TYPOGRAPHY
 @serif:              "Georgia", Cambria, Times New Roman, Times, serif; 
 @custom: 			"Gotham SSm A","Gotham SSm B","Myriad Pro" ,"Helvetica Neue", "Trebuchet MS", "Arial";
 @customlarge: 			"Gotham A","Gotham B","Myriad Pro" ,"Helvetica Neue", "Trebuchet MS", "Arial";
+
+@large: 			"Gotham A","Gotham B","Myriad Pro" ,"Helvetica Neue", "Trebuchet MS", "Arial";
 
 /* 	To embed your own fonts, use this syntax
 	and place your fonts inside the 
@@ -164,11 +196,133 @@ don't use the shorthand to define *different* corners.
 USAGE: .border-radius(4px); 
 
 */
+
+/* .rounded(4px); */
+/* NOTE: For older browser support (and some mobile), don't use the shorthand to define *different* corners. */
+.rounded(@radius: 4px) {
+  -webkit-border-radius: @radius;
+     -moz-border-radius: @radius;
+          border-radius: @radius;
+}
+
 .border-radius(@radius: 4px) {
   -webkit-border-radius: @radius;
      -moz-border-radius: @radius;
           border-radius: @radius;
 }
+
+/*********************
+LINKS
+*********************/
+.custom_link(@color:@tasc-green, @border:1px solid #fff,@color-hover:lighten(@tasc-green, 10%),@border-hover:1px solid #dee7e1,@color-active:darken(@tasc-green,10%)) {
+	a, a:visited { 
+		color: @color;
+		.transition(all, 0.2s);
+		border-bottom:@border;
+		text-decoration: none;
+		font-family: "xxx";
+	
+		/* on hover */
+		&:hover, &:focus {
+			color: @color-hover;
+			border-bottom:@border-hover;
+			
+		}
+		
+		/* on click */
+		&:active {
+			color:darken(@tasc-green,10%);
+			
+		}
+		
+		/* mobile tap color */
+		&:link {
+			/* 
+			this highlights links on iPhones/iPads. 
+			so it basically works like the :hover selector
+			for mobile devices.
+			*/ 
+			-webkit-tap-highlight-color: rgba(0,0,0,0);
+		}
+	}
+}
+
+
+.classic_link() {
+	a, a:visited { 
+		color: @tasc-green;
+		border-bottom:1px solid transparent;
+		text-decoration: none;
+		font-weight:400;
+		.transition(all, 0.2s);
+	
+		/* on hover */
+		&:hover, &:focus {
+			border-bottom:1px solid @tasc-green;
+			
+		}
+		
+		/* on click */
+		&:active,&:focus {
+			border-bottom:1px solid transparent;
+			
+		}
+		
+		/* mobile tap color */
+		&:link {
+			/* 
+			this highlights links on iPhones/iPads. 
+			so it basically works like the :hover selector
+			for mobile devices.
+			*/ 
+			-webkit-tap-highlight-color: rgba(0,0,0,0);
+		}
+	}
+}
+
+.gray_link() {
+	a, a:visited { 
+		color:@tascgray;
+		border-bottom:1px solid transparent;
+		text-decoration: none;
+		.transition(all, 0.2s);
+	
+		/* on hover */
+		&:hover, &:focus {
+			color:@text;
+			border-bottom:1px solid @tascgray;
+		}
+		
+		/* on click */
+		&:active {
+			color:@darkgrafite;
+		}
+		
+	}
+}
+
+.black_link() {
+	a, a:visited { 
+		color:@text;
+		border-bottom:1px solid transparent;
+		text-decoration: none;
+		.transition(all, 0.2s);
+	
+		/* on hover */
+		&:hover, &:focus {
+			color:@tascgray;
+			border-bottom:1px solid @tascgray;
+		}
+		
+		/* on click */
+		&:active {
+			color:@grafite;
+		}
+		
+	}
+}
+
+
 
 
 /*********************
@@ -268,6 +422,43 @@ to {.scale(1);}
 /*********************
 BUTTONS
 *********************/
+
+
+//classic hover green effect
+.tasc-button(@color1:@grafite) {	
+	&:hover, &:focus {
+		background-color: @color1;
+		border:0px;
+		color:#fff !important;
+	}
+	
+	&:active {
+		background-color:@darkgrafite;
+	}	
+	
+}
+
+//new gray hover effect
+.tasc-button-gray(@color1:@tasc-light-green) {	
+	&:hover, &:focus {
+		border:1px solid @tascgray;
+		border-bottom:1px solid @tascgray !important;
+		color:@tascgray;
+	}
+	
+}
+
+
+
+
+@-webkit-keyframes rotation {
+  from{
+      transform: rotate(45deg);
+  }
+  to{
+      transform: rotate(180deg);
+  }
+}
 
 .button, .button:visited {
 	border: 1px solid darken(@bones-pink, 13%);

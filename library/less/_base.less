@@ -42,6 +42,10 @@ body {
 	background-color: @tasc-background;
 }
 
+body.single-post{
+	background-color: white;
+}
+
 body,html {
 	overflow-x:hidden;
 }
@@ -185,10 +189,14 @@ h5, .h5 {
 	height: 300px;
 	width: 100%;
 	position:relative;	
+	z-index: 5;
 	&.article-single {
-		background-color: transparent;
+		background-color: rgba(85, 98, 105, 0);
 		.header-social {
 			display: none;
+		}
+		#inner-header {
+			background-color: rgba(85, 98, 105, 0);
 		}
 	}
 	
@@ -203,7 +211,7 @@ h5, .h5 {
 		padding:0 20px;
 		.boxSizing();
 		&.article-single {
-			background-color: transparent;
+			background-color: rgba(85, 98, 105, 0);
 			.header-social {
 				display: none;
 			}
@@ -579,37 +587,283 @@ and more scalable.
 09. POSTS & CONTENT STYLES SINGLE
 *********************/
 
-.article-super-header{
-	width: 100%;
-	height: 100vh;
-	background-color: @tasc-grey;
-	background-size: cover;
-    background-position: center center;
-    .article-super-shade{
-		background-color: black;
-		opacity: 0.5;
-		width: 100%;
-		height: 100vh;
-		position: absolute;
+.super-full {  //the container class
+	div.gradient {
+		position:absolute;
+		background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 87%, rgba(0,0,0,0.7) 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(87%,rgba(0,0,0,0.7)), color-stop(100%,rgba(0,0,0,0.7))); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 87%,rgba(0,0,0,0.7) 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 87%,rgba(0,0,0,0.7) 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 87%,rgba(0,0,0,0.7) 100%); /* IE10+ */
+		background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 87%,rgba(0,0,0,0.7) 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#b3000000',GradientType=0 ); /* IE6-9 */
+		z-index:1;
 		top:0;
-		left: 0;
-    }
-	#super-title{
-		z-index: 1;
-		position: relative;
-		h1.single-title{
-				margin: 0;
-			    text-align: center;
-			a{
-			    line-height: 100vh;
-			    text-transform: uppercase;
-			    color: white;
-			    font-weight: 600;
+		left:0;
+		height:100%;
+		width: 100%;
+	}
+
+	#super-header {
+	display: block;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    min-height: 450px;
+    margin-top: -300px;
+	//HEADER
+	header.header {
+		position:relative;
+		width:100%;
+		z-index:3;
+		.bgRGB(@grafite ,0.8);
+	}
+
+	//POST-HEADER
+		#large-post-header{
+			position:absolute;
+			z-index:2;
+			background-size:cover;
+			background-repeat:no-repeat;
+			background-position:center;
+			width:100%;
+			height:100%;
+			top:0;
+			max-height:100%;
 			
+			#full-post-info {
+				position:absolute;
+				bottom:10%;
+				width:70%;
+				left:3%;
+				z-index:4;
+				color: @white;
+				#super-title {
+					h1 {
+						font-size:2em; 
+						width:90%;
+						font-weight:400;
+						font-family:@large;
+						a,a:visited {
+							color:rgba(255,255,255,0.95);
+							&:hover {
+								color:rgba(255,255,255,1) !important;
+							}
+						}
+					}
+				}
+				
+				#super-author {
+					position:relative;
+					bottom:5%;
+					h2 {
+						height:30px;
+						line-height:30px;
+						font-weight:400;
+						font-size:1em;
+						font-family:@large;
+						.gravatar {
+							display:inline-block;
+							width: 30px;
+							height:30px;
+							margin-right:5px;
+							float:left;
+							img {
+								width:100%;
+								height:auto;
+								.rounded(100%);
+							}
+						}
+						.author-details{
+							height:30px;
+							line-height:30px;
+							color:rgba(255,255,255,0.76);
+						}
+						a,a:visited {
+							color:rgba(255,255,255,0.76);
+							height:60px;
+							display:inline-block;
+							border-bottom:0;
+							&:hover {
+								color:rgba(255,255,255,1) !important;
+							}
+						}
+					}
+				}
+			} //end full post infos
+			
+		} //end large post header
+	} //end global super header
+	
+} //end super full post
+
+
+/*MODAL*/
+#lean_overlay {
+    display: none;
+}
+
+#fblikebox {
+	display:none;
+}
+
+article.single.post {
+
+	.thumbnail {
+		img {
+			max-width:100%;
+			height:auto;
+		}
+		
+	}
+
+	header {
+		.cat {
+			margin-bottom:1em;
+			display:block;
+			float:none;
+		}
+	}
+	
+	.post-content{
+		line-height: 30px;
+		img{
+			width: 100%;
+			height: auto;
+		}
+		.youtubevideo{
+			width: 100%;
+			iframe{
+				width: 100%;
 			}
 		}
 	}
+		
+	footer.article-footer {
+		height: auto;
+	
+		.post-detailed-info {
+			padding:1.5em 0;
+			border-bottom: 1px solid @tascpure;	
+			
+			&:last-child {
+				border-bottom:0px;
+			}
+		}
+		
+		.meta {
+			width: 100%;
+			float: none;
+			max-width: 100%;
+		}
+		
+		.tags {
+			width: 100%;
+			float: none;
+			max-width: 100%;
+			padding:1em 0;
+			display:block;
+			font-size:.9em;
+			padding: 2em 0;
+			.gray_link();
+			
+			.tags_icon {
+				display:inline-block; margin-right:8px;
+				vertical-align: middle;
+			}
+		}
+	}
+		
+	.theauthor {
+		padding:2em 0;
+		border-bottom:2px solid @lightgray;
+		margin:2em 0;
+		.image{
+			float:left;
+			width:25%;
+			max-width:150px;
+			margin-top:0;
+			img {
+				width:100%;
+				height:auto;
+				float:right;
+				.rounded(100%);
+			}
+		}
+		
+		.about {
+			max-width:70%;
+			float:right;
+			text-align:justify;
+			
+			h1 {
+				margin:-5px 0 8px 0;
+			}
+			p {
+				display:inline;
+			}
+			
+		}
+		
+		ul {
+			padding-left:0;
+			margin-top: 10px;
+			
+			li {float:left; margin-right:5px; list-style-type:none;}
+		}
+		
+		
+	}
+		
+	#related_stories {
+		 overflow:hidden;
+		 margin-bottom:2em;
+		 border-bottom:2px solid @lightgray;
+		 padding-bottom:2em;
+		 
+		 article {
+			 margin:.5em 0;
+			 border-bottom:0px;
+			 display:block;
+		 }
+		 
+		.tasc-post {
+			max-height: 245px;
+			overflow: hidden;
+			img {
+			}
+			
+			&:hover .overlay {
+				opacity:.2 !important;
+			}
+			
+		}
+		
+		.overlay {
+			opacity:.7;
+		}
+					
+		.title {
+			font-size:1.4em;
+		}
+		
+		a,a:visited {
+		}
+	
+	}
+		
 }
+
+ul.social {
+	.twitter {.tasc-button(#67c9ed);}
+	.facebook {.tasc-button(#3174bf);}
+	.instagram {.tasc-button(#a42131);}
+	.flickr {.tasc-button(#dd34db);}
+	.linkedin {.tasc-button(#4a628f);}
+}
+
+
 
 /******************************************************************
 09. PAGE NAVI STYLES
