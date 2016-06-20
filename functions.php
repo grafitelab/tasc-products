@@ -92,7 +92,6 @@ add_filter('the_content','filter_amazon_associate_filter'); add_filter('comment_
 
 
 
-
 /************* ACTIVE SIDEBARS ********************/
 
 // Sidebars & Widgetizes Areas
