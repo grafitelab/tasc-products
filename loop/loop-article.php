@@ -76,7 +76,7 @@
 		?>
 		
 		<p class="storelink"><a href="<?php echo $productCustomMeta['storelink']; ?>" target="_blank"><?php echo $productCustomMeta['description']; ?></a></p>
-		
+				
 		<?php 
 				} 
 			} 

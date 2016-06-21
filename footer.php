@@ -64,6 +64,33 @@
 		    
 		  })        
 		</script>
+		
+		<!-- Custom loading scripts -->
+		
+		<?php if ( is_single() ) {?>	
+		<script  type="text/javascript">	
+			jQuery(document).ready(function($) {
+			/*FULL SCREEN IMAGE*/
+			$(function(){
+				var w = $(window).width();
+				var pW = $(".single .post").width();
+				var setMargin = (pW - w)/2;
+				$(".post-content img.full_screen_img").css("max-width", "none");
+				$(".post-content img.full_screen_img").css('width',w);
+				$(".post-content img.full_screen_img").css('margin-left',(setMargin) + "px");
+			    $(window).resize(function(){
+					var w = $(window).width();
+					var pW = $(".single .post").width();
+					var setMargin = (pW - w)/2;
+					$(".post-content img.full_screen_img").css("max-width", "none");
+					$(".post-content img.full_screen_img").css('width',w);
+					$(".post-content img.full_screen_img").css('margin-left',(setMargin) + "px");
+			    });
+			});
+			
+			});
+	    </script>
+            <?php } ?> 
 
 	</body>
 

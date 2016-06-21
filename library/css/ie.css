@@ -72,6 +72,9 @@ use color variables properly:
 http://sachagreif.com/sass-color-variables/
 */
 /*********************
+TO RGB
+*********************/
+/*********************
 TYPOGRAPHY
 *********************/
 /* 	To embed your own fonts, use this syntax
@@ -153,6 +156,11 @@ don't use the shorthand to define *different* corners.
 USAGE: .border-radius(4px); 
 
 */
+/* .rounded(4px); */
+/* NOTE: For older browser support (and some mobile), don't use the shorthand to define *different* corners. */
+/*********************
+LINKS
+*********************/
 /*********************
 TRANISTION
 *********************/
@@ -302,13 +310,21 @@ ANIMATION
 /*********************
 BUTTONS
 *********************/
+@-webkit-keyframes rotation {
+  from {
+    transform: rotate(45deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}
 .button,
 .button:visited {
   border: 1px solid #be0d37;
   border-top-color: #db0f3f;
   border-left-color: #db0f3f;
   padding: 4px 12px;
-  color: #fff;
+  color: #ffffff;
   display: inline-block;
   font-size: 11px;
   font-weight: bold;
@@ -336,7 +352,7 @@ BUTTONS
 .button:visited:hover,
 .button:focus,
 .button:visited:focus {
-  color: #fff;
+  color: #ffffff;
   border: 1px solid #be0d37;
   border-top-color: #9d0a2d;
   border-left-color: #9d0a2d;
@@ -465,7 +481,6 @@ FOOTER STYLES
 check your menus here. do they look good?
 do they need tweaking?
 */
-/* end .footer-links */
 /* import grid */
 /******************************************************************
 Site Name:
@@ -637,37 +652,3 @@ mobile. Make sure to double check these!
 			the footer.
 			*/
 }
-/* end .footer-links */
-/******************************************************************
-Site Name: 
-Author: 
-
-Stylesheet: Desktop Stylsheet
-
-This is the desktop size. It's larger than an iPad so it will only
-be seen on the Desktop. 
-
-******************************************************************/
-/* 
-you can call the larger styles if you want, but there's really no need 
-*/
-/******************************************************************
-ADDITIONAL IE FIXES
-These fixes are now ONLY seen by IE, so you don't have to worry
-about using prefixes, although it's best practice. For more info
-on using Modernizr classes, check out this link:
-http://www.modernizr.com/docs/
-******************************************************************/
-/*
-For example, you can use something like:
-
-.no-textshadow .class { ... }
-
-You can also target specific versions by using the classes applied to
-the html element. These can sometimes change, so take a look inside the
-header.php file to see what they are:
-
-
-.lt-ie8 .class { ... }
-
-*/

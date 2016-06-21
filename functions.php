@@ -91,6 +91,10 @@ function filter_amazon_associate_filter($content) {
 add_filter('the_content','filter_amazon_associate_filter'); add_filter('comment_text','filter_amazon_associate_filter');
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 /************* ACTIVE SIDEBARS ********************/
 
 // Sidebars & Widgetizes Areas
