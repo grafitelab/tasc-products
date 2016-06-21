@@ -238,6 +238,10 @@ ANIMATION
 .scale(@ratio:1.5){
   .transform(scale(@ratio));
 }
+.scaleY(@ratio:1.5){
+  .transform(scaleY(@ratio));
+}
+
 .transform(...) {
   -webkit-transform: @arguments;
   -moz-transform: @arguments;
@@ -248,6 +252,7 @@ ANIMATION
 
 .animation(@animation:scaleup,@time:.5s) {
   animation: @animation @time; -webkit-animation: @animation @time; /* Safari and Chrome */ 
+  
 }
 
 
@@ -262,6 +267,35 @@ to {.scale(1);}
 from {.scale(0);}
 to {.scale(1);}
 }
+
+@keyframes loop1
+{
+  0%   { .scaleY(@ratio:1)}
+  50% { .scaleY(@ratio:1.5) }
+  100% { .scaleY(@ratio:1) }
+}
+
+@keyframes loop2
+{
+  0%   { .scaleY(@ratio:1)}
+  50% { .scaleY(@ratio:1.5) }
+  100% { .scaleY(@ratio:1) }
+}
+
+@keyframes loop3
+{
+  0%   { .scaleY(@ratio:1)}
+  50% { .scaleY(@ratio:1.5) }
+  100% { .scaleY(@ratio:1) }
+}
+
+@keyframes loop4
+{
+  0%   { .scaleY(@ratio:1)}
+  50% { .scaleY(@ratio:1.5) }
+  100% { .scaleY(@ratio:1) }
+}
+
 
 
 

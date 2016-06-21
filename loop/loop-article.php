@@ -19,7 +19,7 @@
 
 					foreach ($galleryArray as $id) { ?>
 					
-						<div class="swiper-slide" style="background-image: url(<?php echo wp_get_attachment_url( $id ); ?>)"></div>
+						<div class="swiper-slide"><img src="<?php echo wp_get_attachment_url( $id ); ?>" /></div>
 					
 					<?php } ?>
 					

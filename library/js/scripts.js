@@ -30,6 +30,28 @@ if (!window.getComputedStyle) {
 // as the page loads, call these scripts
 jQuery(document).ready(function($) {
 
+
+	//AFFILIATE LINKS
+	$("a[href*='amazon']").each(function() {
+		if (this.href.indexOf("?") >= 0) {this.href = this.href + '&tag=skimbu08-21';} else {this.href = this.href + '?tag=skimbu08-21';}
+	    
+	});
+	$("a[href*='fancy']").each(function() {
+		if (this.href.indexOf("?") >= 0) {this.href = this.href + '&ref=owl';} else {this.href = this.href + '?ref=owl';}
+	});
+	$("a[href*='itunes']").each(function() {
+		if (this.href.indexOf("?") >= 0) {this.href = this.href + '&at=11lK8x';} else {this.href = this.href + '?at=11lK8x';}
+	});
+	
+	
+	function explode(){
+		  $("#peak1").addClass('anpeak1');
+		  $("#peak2").addClass('anpeak2');
+		  $("#peak3").addClass('anpeak3');
+		  $("#peak4").addClass('anpeak4');
+	}
+	setTimeout(explode, 2300);
+
     /*
     Responsive jQuery is a tricky thing.
     There's a bunch of different ways to handle

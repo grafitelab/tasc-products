@@ -12,7 +12,7 @@
 						Developed by Matteo Pelosi.
 					</div>
 					<div class="footer-right swiper-slide">
-						Il Cast è il nostro gruppo, composto da Alberto Gerin, Roberto Collorafi, Ugo Possenti, Alessio Romaniello, Luca Toscano, Giorgio Coltella, Gioele Citton, Lorenzo Berni, Lavinia Maisto e Patrizio Stella.
+						Il Cast è il nostro gruppo, composto da Alberto Gerin, Ugo Possenti, Alessio Romaniello, Luca Toscano, Giorgio Coltella, Gioele Citton, e Lavinia Maisto.
 					</div>
 					
 					</div>
@@ -38,6 +38,7 @@
 		    // Optional parameters
 		    direction: 'horizontal',
 		    loop: true,
+		    calculateHeight:true,
 		    
 		    // If we need pagination
 		    pagination: '.swiper-pagination',

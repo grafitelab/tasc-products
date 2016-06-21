@@ -91,8 +91,6 @@ function filter_amazon_associate_filter($content) {
 add_filter('the_content','filter_amazon_associate_filter'); add_filter('comment_text','filter_amazon_associate_filter');
 
 
-
-
 /************* ACTIVE SIDEBARS ********************/
 
 // Sidebars & Widgetizes Areas
@@ -337,6 +335,16 @@ function bones_wpsearch($form) {
     </form>';
     return $form;
 } // don't remove this bracket!
+
+
+
+//RSS FEED WITH PRODUCTS
+function myfeed_request($qv) {
+	if (isset($qv['feed']) && !isset($qv['post_type']))
+		$qv['post_type'] = array('post', 'product');
+	return $qv;
+}
+add_filter('request', 'myfeed_request');
 
 
 ?>

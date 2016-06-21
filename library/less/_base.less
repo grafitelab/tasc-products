@@ -236,12 +236,17 @@ h5, .h5 {
 		
 	}
 	
-	.peak {background-size:100% auto; background-repeat:no-repeat; float:left; height:180px; background-position:bottom left; margin-left:-20px;  -webkit-backface-visibility: hidden !important; .animation(fadein,.5s);}
+	.peak {background-size:100% auto; background-repeat:no-repeat; float:left; height:180px; background-position:bottom left; margin-left:-20px;  -webkit-backface-visibility: hidden !important; .animation(fadein,.5s); transform-origin: bottom;}
 
-	#peak1 {background-image:url('../images/1.png'); background-size:42px auto; width:42px; /*width:73px*/ .animation(scaleup,.8s) ; }
+	#peak1 {background-image:url('../images/1.png'); background-size:42px auto; width:42px;  /*width:73px*/ .animation(scaleup,.8s) ; }
 	#peak2 {background-image:url('../images/2.png'); background-size:42px auto; width:42px; .animation(scaleup,1.1s); }
 	#peak3 {background-image:url('../images/3.png'); background-size:51px auto; width:51px; .animation(scaleup,1.3s); }
 	#peak4 {background-image:url('../images/4.png'); background-size:42px auto; width:42px;.animation(scaleup,1s); }
+
+	.anpeak1 {animation: loop1 1.6s ease-in infinite !important; -webkit-animation: loop1 2s ease-in infinite !important; /* Safari and Chrome */  }
+	.anpeak2 {animation: loop2 1.7s ease-in infinite !important; -webkit-animation: loop2 3s ease-in infinite !important; /* Safari and Chrome */  }
+	.anpeak3 {animation: loop3 1.6s ease-in infinite !important; -webkit-animation: loop3 4s ease-in infinite !important; /* Safari and Chrome */  }
+	.anpeak4 {animation: loop4 1.5s ease-in infinite !important; -webkit-animation: loop4 5s ease-in infinite !important; /* Safari and Chrome */  }
 
 	#logo {
 		/*width: 100px;
@@ -302,8 +307,13 @@ and more scalable.
 #content {
 	margin-top: 2.2em;
 	color: @tasc-black;
-	a{
+	a,a:visited{
 		color: @tasc-black;
+		&:hover {
+			text-decoration: none;
+			color: @bones-blue;
+		}
+		
 	}
 
 	#inner-content {
@@ -330,12 +340,12 @@ and more scalable.
 					width: 100%;
 					iframe{
 						width: 100%;
-						min-height: 440px;
+						max-height: 500px;
 					}
 				}
 				.gallery-container{
 					width: 100%;
-				    height: 440px;
+				    max-height: 500px;
 				    position: relative;
 				    overflow: hidden;
 				    .swiper-slide{
@@ -344,7 +354,7 @@ and more scalable.
 					    width: 100% !important;
 				    }
 				    .swiper-pagination-bullet-active{
-					    background: white;
+					    background: @black;
 				    }
 				}
 			}
