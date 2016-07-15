@@ -2,8 +2,8 @@
 						    
 	<div class="article-media-container">
 		<?php
-			$media_radio = get_post_meta(get_the_ID(), 'opt_media_radio', true);
-	
+		$media_radio = get_post_meta(get_the_ID(), 'opt_media_radio', true);
+		
 			if(has_post_video() and ($media_radio == "video")){
 				the_post_video();
 			} elseif($media_radio == "gallery") {
@@ -16,7 +16,7 @@
 			    <div class="swiper-wrapper">
 			        <!-- Slides -->
 			        <?php
-
+					
 					foreach ($galleryArray as $id) { ?>
 					
 						<div class="swiper-slide"><img src="<?php echo wp_get_attachment_url( $id ); ?>" /></div>
@@ -43,7 +43,7 @@
 						
 	<header class="article-header">
 							
-		<h1 class="h2"><?php the_title(); ?></h1>
+		<h1 class="h2"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
 		<h2 class="h5"><?php
 			if('product' == get_post_type()){
 				//list terms in a given taxonomy (useful as a widget for twentyten)

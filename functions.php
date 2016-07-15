@@ -345,5 +345,32 @@ function myfeed_request($qv) {
 }
 add_filter('request', 'myfeed_request');
 
+//Adding the Open Graph in the Language Attributes
+function add_opengraph_doctype( $output ) {
+		return $output . ' xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"';
+	}
+add_filter('language_attributes', 'add_opengraph_doctype');
+
+
+//AUTO FEATURED IMAGE
+function auto_featured_image() {
+    global $post;
+ 
+    if (!has_post_thumbnail($post->ID)) {
+        $attached_image = get_children( "post_parent=$post->ID&post_type=attachment&post_mime_type=image&numberposts=1" );
+         
+      if ($attached_image) {
+              foreach ($attached_image as $attachment_id => $attachment) {
+                   set_post_thumbnail($post->ID, $attachment_id);
+              }
+         }
+    }
+}
+// Used for new posts
+add_action('save_post', 'auto_featured_image');
+add_action('draft_to_publish', 'auto_featured_image');
+add_action('new_to_publish', 'auto_featured_image');
+add_action('pending_to_publish', 'auto_featured_image');
+add_action('future_to_publish', 'auto_featured_image');
 
 ?>

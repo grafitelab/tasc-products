@@ -22,8 +22,8 @@
 					    <?php endwhile; ?>	
 					            <nav class="wp-prev-next">
 					                <ul class="clearfix">
-					        	        <li class="prev-link"><?php if(get_previous_posts_link()) {next_posts_link(__('&laquo; Older Entries', "bonestheme")); } ?></li>
-					        	        <li class="next-link"><?php if(get_next_posts_link()) {previous_posts_link(__('Newer Entries &raquo;', "bonestheme")); } ?></li>
+					        	        <li class="prev-link"><?php next_posts_link(__('&laquo; Altri Prodotti', "bonestheme"));  ?></li>
+					        	        <li class="next-link"><?php previous_posts_link(__('Nuovi Prodotti &raquo;', "bonestheme"));  ?></li>
 					                </ul>
 					            </nav>
 					
